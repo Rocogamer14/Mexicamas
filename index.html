@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="MEXICAMAS: fabricación de bases de cama y literas metálicas en Monterrey, N.L. Medidas y colores a elegir, servicio de pintura y mantenimiento. Cotiza por WhatsApp.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MEXICAMAS | Bases de cama y literas metálicas">
+  <meta property="og:description" content="Bases de cama y literas metálicas resistentes, con medidas y colores a elegir. Monterrey, N.L.">
+  <meta property="og:image" content="img/logo.png">
+  
+  <meta name="author" content="Ricardo Ovalle - RSoftwares">
+  <meta name="copyright" content="Este codigo es de uso exclusivo de Ricardo Ovalle para la empresa Mexicamas">
+  <meta name="developer" content="RSoftwares">
+
+  <title>MEXICAMAS | Bases de cama y literas metálicas en Monterrey</title>
+
+  <link rel="icon" type="image/png" href="img/lg.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <noscript>
+    <style>
+      .seccion-animada { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+
+  <style>
+    :root {
+      --negro: #111111;
+      --rojo: #c51b24;
+      --rojo-oscuro: #94141b;
+      --gris: #f3f3f3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--gris);
+      color: #191919;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body.sin-scroll {
+      overflow: hidden;
+    }
+
+    a, button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible, button:focus-visible, input:focus-visible,
+    select:focus-visible, textarea:focus-visible {
+      outline: 3px solid #e24a50;
+      outline-offset: 3px;
+    }
+
+    /* ===== FONDO DE PORTADA ESTILO BANDERA DE MÉXICO ===== */
+    .fondo-principal {
+      position: relative;
+      isolation: isolate;
+      background: #0b0b0b;
+    }
+
+    .bandera {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .bandera span {
+      display: block;
+      flex: 1;
+      height: 100%;
+      animation: respirar 7s ease-in-out infinite alternate;
+    }
+
+    .bandera .verde  { background: #006847; }
+    .bandera .blanco { background: #f2f2f2; animation-name: respirarInverso; }
+    .bandera .rojo   { background: #ce1126; animation-delay: -3s; }
+
+    .bandera::after {
+      content: "";
+      position: absolute;
+      inset: 0 -270px;
+      background: repeating-linear-gradient(90deg,
+        rgba(255, 255, 255, 0) 0px,
+        rgba(255, 255, 255, 0.17) 90px,
+        rgba(0, 0, 0, 0.16) 180px,
+        rgba(255, 255, 255, 0) 270px);
+      animation: ondear 8s linear infinite;
+    }
+
+    .fondo-principal::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.76) 0%, rgba(0, 0, 0, 0.66) 50%, rgba(0, 0, 0, 0.34) 100%);
+    }
+
+    .barra-inferior {
+      height: 4px;
+      width: 100%;
+      background: linear-gradient(90deg, #1e8b4c 0%, white 50%, #c51b24 100%);
+    }
+
+    .separador-bandera {
+      height: 8px;
+      width: 100%;
+      background: linear-gradient(90deg, #1e8b4c 0%, #f2f2f2 50%, #c51b24 100%);
+      box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1), 0 1px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .fondo-footer {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: #0b0b0b;
+    }
+
+    .fondo-footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.72) 100%);
+    }
+
+    .logo-footer {
+      display: block;
+      width: clamp(140px, 15vw, 220px);
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(1px 0px 0px rgba(255, 255, 255, 0.8))
+              drop-shadow(-1px 0px 0px rgba(255, 255, 255, 0.8))
+              drop-shadow(0px 1px 0px rgba(255, 255, 255, 0.8))
+              drop-shadow(0px -1px 0px rgba(255, 255, 255, 0.8));
+    }
+
+    .logo-footer:hover {
+      transform: scale(1.05);
+    }
+
+    .hero-contenido {
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-contenido .entrada {
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+    }
+
+    .particulas {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .particula {
+      position: absolute;
+      bottom: -24px;
+      border-radius: 3px;
+      opacity: 0;
+      animation: subir linear infinite;
+    }
+
+    .texto-brillo {
+      background: linear-gradient(90deg, #ef454d 0%, #ffffff 50%, #ef454d 100%);
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      text-shadow: none;
+      animation: brillo 3.5s linear infinite;
+    }
+
+    .boton-rojo {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--rojo);
+      color: white;
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .boton-rojo::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -80%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.38), transparent);
+      transform: skewX(-20deg);
+      pointer-events: none;
+    }
+
+    .boton-rojo:hover::after {
+      animation: destello 0.75s ease;
+    }
+
+    .boton-rojo:hover {
+      background: var(--rojo-oscuro);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(197, 27, 36, 0.2);
+    }
+
+    .rebote {
+      display: inline-block;
+      animation: rebote 0.5s ease;
+    }
+
+    .logo-menu {
+      display: block;
+      width: clamp(100px, 12vw, 175px);
+      height: auto;
+      max-height: 70px;
+      object-fit: contain;
+      object-position: left center;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(1px 0px 0px rgba(255, 255, 255, 0.8))
+              drop-shadow(-1px 0px 0px rgba(255, 255, 255, 0.8))
+              drop-shadow(0px 1px 0px rgba(255, 255, 255, 0.8))
+              drop-shadow(0px -1px 0px rgba(255, 255, 255, 0.8));
+    }
+
+    .logo-menu:hover {
+      transform: scale(1.035);
+    }
+
+    .logo-portada {
+      display: block;
+      width: 100%;
+      max-width: clamp(220px, 45vw, 850px);
+      height: auto;
+      object-fit: contain;
+      opacity: 1;
+      animation: logoEntrada 0.9s ease both, flotar 6s ease-in-out 1s infinite;
+      filter: drop-shadow(1px 0px 0px rgba(255, 255, 255, 0.8))
+              drop-shadow(-1px 0px 0px rgba(255, 255, 255, 0.8))
+              drop-shadow(0px 1px 0px rgba(255, 255, 255, 0.8))
+              drop-shadow(0px -1px 0px rgba(255, 255, 255, 0.8));
+    }
+
+    /* ===== DISEÑO RESPONSIVO MULTI-DISPOSITIVO PARA LAS TARJETAS ===== */
+    .tarjeta-producto {
+      background: white;
+      border: 1px solid #e7e7e7;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      flex: 0 0 100%; /* Relojes y celulares muy pequeños */
+      scroll-snap-align: center;
+    }
+
+    @media (min-width: 480px) {
+      .tarjeta-producto {
+        flex: 0 0 calc(85% - 0.5rem); /* Celulares medianos/grandes */
+      }
+    }
+
+    @media (min-width: 768px) {
+      .tarjeta-producto {
+        flex: 0 0 calc(50% - 0.75rem); /* Tablets */
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .tarjeta-producto {
+        flex: 0 0 calc(33.333% - 1rem); /* Laptops y Pantallas PC */
+      }
+    }
+
+    @media (min-width: 1600px) {
+      .tarjeta-producto {
+        flex: 0 0 calc(25% - 1.125rem); /* Monitores 2K, 4K y Televisores */
+      }
+    }
+
+    .tarjeta-producto:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+      border-color: #d7a1a3;
+    }
+
+    .imagen-producto {
+      width: 100%;
+      height: clamp(160px, 25vh, 280px);
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .tarjeta-producto:hover .imagen-producto {
+      transform: scale(1.045);
+    }
+
+    .imagen-contenedor {
+      overflow: hidden;
+      background: #e9e9e9;
+    }
+
+    .carrusel-contenedor {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 1rem 0.25rem;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .carrusel-contenedor::-webkit-scrollbar {
+      display: none;
+    }
+
+    .indicador-carrusel {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d1d5db;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .indicador-carrusel.activo {
+      background: var(--rojo);
+      width: 24px;
+      border-radius: 999px;
+    }
+
+    .encabezado-seccion {
+      position: relative;
+      display: inline-block;
+      font-size: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .encabezado-seccion::after {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 55px;
+      margin: 13px auto 0;
+      background: var(--rojo);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    .encabezado-seccion:hover::after {
+      width: 100px;
+    }
+
+    .fondo-servicios {
+      position: relative;
+      isolation: isolate;
+      background: #0b0b0b;
+    }
+
+    .fondo-servicios::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.66) 50%, rgba(0, 0, 0, 0.8) 100%);
+    }
+
+    .fondo-servicios .encabezado-seccion::after {
+      background: linear-gradient(90deg, #1e8b4c 0%, #ffffff 50%, #c51b24 100%);
+    }
+
+    .servicio {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: linear-gradient(145deg, rgba(32, 32, 32, 0.82), rgba(12, 12, 12, 0.9));
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      animation: flotarTarjeta 5s ease-in-out infinite alternate;
+    }
+
+    .servicio:nth-child(2) { animation-delay: -1.7s; }
+    .servicio:nth-child(3) { animation-delay: -3.4s; }
+
+    .servicio.seccion-animada {
+      transition: opacity 0.7s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .servicio::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #1e8b4c 0%, #f2f2f2 50%, #c51b24 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.9s ease 0.4s;
+    }
+
+    .servicio.visible::before { transform: scaleX(1); }
+
+    .servicio-numero {
+      display: inline-block;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 900;
+      line-height: 1;
+      color: #ef454d;
+      background: linear-gradient(90deg, #22a45d 0%, #ffffff 50%, #ef454d 100%);
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: brillo 4s linear infinite;
+      transition: transform 0.4s ease;
+      transform-origin: left center;
+    }
+
+    .servicio:hover .servicio-numero {
+      transform: scale(1.25) rotate(-6deg);
+    }
+
+    .whatsapp-flotante {
+      position: fixed;
+      right: clamp(10px, 3vw, 30px);
+      bottom: clamp(10px, 3vw, 30px);
+      z-index: 9999;
+      width: clamp(48px, 8vw, 64px);
+      height: clamp(48px, 8vw, 64px);
+      display: flex; align-items: center; justify-content: center;
+      background: #25d366;
+      border: 2px solid white;
+      border-radius: 50%;
+      box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      animation: whatsappPulso 2s infinite;
+    }
+
+    .whatsapp-flotante:hover {
+      transform: scale(1.12);
+      animation-play-state: paused;
+      box-shadow: 0 0 0 9px rgba(37, 211, 102, 0.15), 0 8px 25px rgba(37, 211, 102, 0.45);
+    }
+
+    .whatsapp-flotante svg { width: 60%; height: 60%; fill: white; }
+
+    .whatsapp-texto {
+      position: fixed;
+      right: clamp(65px, 10vw, 105px);
+      bottom: clamp(18px, 3.5vw, 40px);
+      z-index: 9998;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: #171717;
+      color: white;
+      font-size: clamp(10px, 1.5vw, 13px);
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      animation: aparecer 0.6s ease both;
+    }
+
+    /* Modales adaptables para pantallas ultra pequeñas y grandes */
+    .capa-modal { z-index: 10000; }
+    .modal-fondo { background: rgba(0, 0, 0, 0.72); backdrop-filter: blur(4px); }
+
+    .seccion-animada {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .seccion-animada.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .barra-superior {
+      height: 3px; width: 100%; position: fixed; top: 0; left: 0;
+      z-index: 100; pointer-events: none;
+      background: linear-gradient(90deg, #1e8b4c 0%, white 50%, #c51b24 100%);
+    }
+
+    @keyframes whatsappPulso {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55), 0 4px 18px rgba(37, 211, 102, 0.35); }
+      50% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0), 0 4px 25px rgba(37, 211, 102, 0.55); }
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes logoEntrada {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes respirar { from { flex: 1; } to { flex: 1.18; } }
+    @keyframes respirarInverso { from { flex: 1; } to { flex: 0.78; } }
+    @keyframes ondear { from { transform: translateX(0); } to { transform: translateX(-270px); } }
+
+    @keyframes subir {
+      0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.8; }
+      100% { transform: translate3d(var(--dx, 0px), -720px, 0) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-14px) scale(1.015); }
+    }
+
+    @keyframes brillo {
+      from { background-position: 0% 0; }
+      to { background-position: 220% 0; }
+    }
+
+    @keyframes destello {
+      from { left: -80%; }
+      to { left: 140%; }
+    }
+
+    @keyframes rebote {
+      0%, 100% { transform: scale(1); }
+      40% { transform: scale(1.6); }
+      70% { transform: scale(0.9); }
+    }
+
+    /* Ocultar elementos secundarios en pantallas diminutas (Relojes/Smartwatches) */
+    @media (max-width: 280px) {
+      .whatsapp-texto, .bandera::after { display: none !important; }
+      .p-6, .p-8 { padding: 0.75rem !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Creado por Ricardo Ovalle | empresa: RSoftwares | Este codigo es de uso exclusivo de Ricardo Ovalle para la empresa Mexicamas -->
+  <div class="barra-superior"></div>
+
+  <header class="sticky top-0 z-50 bg-black text-white shadow-lg">
+    <div class="max-w-[1800px] mx-auto px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between">
+      <a href="#inicio" aria-label="Ir al inicio">
+        <img src="img/logo.png" alt="Logo MEXICAMAS" class="logo-menu" decoding="async">
+      </a>
+
+      <button id="btn-menu-movil" type="button" class="lg:hidden text-white p-2 focus:outline-none" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil">
+        <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+        </svg>
+      </button>
+
+      <nav class="hidden lg:flex flex-wrap items-center gap-x-6 xl:gap-x-8 text-sm xl:text-base font-semibold" aria-label="Navegación principal">
+        <a href="#inicio" class="hover:text-red-400 transition">Inicio</a>
+        <a href="#productos" class="hover:text-red-400 transition">Productos</a>
+        <a href="#servicios" class="hover:text-red-400 transition">Servicios</a>
+        <a href="#nosotros" class="hover:text-red-400 transition">Nosotros</a>
+        <a href="#contacto" class="hover:text-red-400 transition">Contacto</a>
+        <button type="button" onclick="mostrarCarrito()" class="boton-rojo rounded-lg px-4 py-2 font-bold">
+          Carrito (<span class="cantidad-carrito-span">0</span>)
+        </button>
+      </nav>
+    </div>
+
+    <div id="menu-movil" class="hidden lg:hidden bg-neutral-900 border-t border-neutral-800">
+      <nav class="flex flex-col px-4 pt-3 pb-5 space-y-3 text-sm sm:text-base font-semibold" aria-label="Navegación móvil">
+        <a href="#inicio" class="enlace-movil hover:text-red-400 transition block py-1">Inicio</a>
+        <a href="#productos" class="enlace-movil hover:text-red-400 transition block py-1">Productos</a>
+        <a href="#servicios" class="enlace-movil hover:text-red-400 transition block py-1">Servicios</a>
+        <a href="#nosotros" class="enlace-movil hover:text-red-400 transition block py-1">Nosotros</a>
+        <a href="#contacto" class="enlace-movil hover:text-red-400 transition block py-1">Contacto</a>
+        <button type="button" onclick="mostrarCarrito(); cerrarMenuMovil();" class="boton-rojo rounded-lg px-4 py-2.5 font-bold w-full text-center mt-2">
+          Ver Carrito (<span class="cantidad-carrito-span">0</span>)
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="fondo-principal text-white overflow-hidden">
+      <div class="bandera" aria-hidden="true"><span class="verde"></span><span class="blanco"></span><span class="rojo"></span></div>
+      <div id="particulas" class="particulas" aria-hidden="true"></div>
+      <div class="hero-contenido max-w-[1800px] mx-auto px-4 sm:px-6 py-10 sm:py-16 md:py-24 grid md:grid-cols-2 gap-8 items-center">
+        <div class="entrada text-center md:text-left">
+          <p class="text-red-400 font-bold uppercase tracking-widest text-xs sm:text-sm mb-2 sm:mb-4">Resistencia, diseño y calidad</p>
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-4 sm:mb-6">
+            BASES HECHAS PARA <span class="texto-brillo">DURAR</span>
+          </h1>
+          <p class="text-gray-300 text-sm sm:text-lg leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto md:mx-0">
+            Fabricamos bases de cama y literas metálicas resistentes y funcionales, con opciones de medidas y colores para aprovechar mejor cada espacio.
+          </p>
+          <div class="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3 sm:gap-4">
+            <a href="#productos" class="boton-rojo rounded-lg px-6 py-3 font-bold text-sm sm:text-base w-full sm:w-auto">Ver productos</a>
+            <a href="https://wa.me/528130905327?text=Hola%2C%20quiero%20informacion%20sobre%20sus%20productos." target="_blank" rel="noopener noreferrer" class="border border-gray-400 rounded-lg px-6 py-3 font-bold text-sm sm:text-base hover:bg-white hover:text-black hover:border-white transition text-center w-full sm:w-auto">
+              Solicitar información
+            </a>
+          </div>
+        </div>
+
+        <div class="entrada-retardada flex items-center justify-center">
+          <img src="img/logo.png" alt="Emblema de MEXICAMAS" class="logo-portada" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECCIÓN DE PRODUCTOS CARRUSEL MULTI-PANTALLA ===== -->
+    <section id="productos" class="py-12 sm:py-20 bg-gray-50 overflow-hidden">
+      <div class="max-w-[1800px] mx-auto px-4 sm:px-6 relative">
+        <div class="text-center mb-8 sm:mb-12 seccion-animada">
+          <p class="text-red-600 font-bold uppercase tracking-widest text-xs sm:text-sm mb-1 sm:mb-2">Catálogo Completo</p>
+          <h2 class="font-black encabezado-seccion">NUESTROS PRODUCTOS</h2>
+          <p class="text-gray-600 text-xs sm:text-base mt-3 sm:mt-5">Desliza para ver nuestros diferentes diseños de bases y literas metálicas.</p>
+        </div>
+
+        <button id="btn-carrusel-prev" type="button" class="hidden md:flex absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 border border-gray-200 shadow-xl rounded-full p-2.5 lg:p-3.5 text-black hover:bg-red-600 hover:text-white transition focus:outline-none" aria-label="Anterior producto">
+          <svg class="w-5 h-5 lg:w-6 lg:h-6 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <button id="btn-carrusel-next" type="button" class="hidden md:flex absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 border border-gray-200 shadow-xl rounded-full p-2.5 lg:p-3.5 text-black hover:bg-red-600 hover:text-white transition focus:outline-none" aria-label="Siguiente producto">
+          <svg class="w-5 h-5 lg:w-6 lg:h-6 fill-current" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+
+        <div id="carrusel-productos" class="carrusel-contenedor py-2 sm:py-4">
+          
+          <article class="tarjeta-producto flex-shrink-0">
+            <div class="imagen-contenedor">
+              <img src="img/bace1.png" alt="Base individual" class="imagen-producto" loading="lazy" decoding="async">
+            </div>
+            <div class="p-4 sm:p-6">
+              <p class="text-[10px] sm:text-xs uppercase tracking-widest text-red-600 font-bold">Producto destacado</p>
+              <h3 class="text-lg sm:text-2xl font-bold mt-1 sm:mt-2">Base individual</h3>
+              <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">Cama de metal resistente, diseño clásico para un buen descanso.</p>
+              <button type="button" onclick="agregarAlCarrito('base-individual')" class="boton-rojo w-full rounded-lg py-2.5 sm:py-3 mt-4 text-xs sm:text-base font-bold">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="tarjeta-producto flex-shrink-0">
+            <div class="imagen-contenedor">
+              <img src="img/bace2.png" alt="Litera básica" class="imagen-producto" loading="lazy" decoding="async">
+            </div>
+            <div class="p-4 sm:p-6">
+              <p class="text-[10px] sm:text-xs uppercase tracking-widest text-red-600 font-bold">Para tu descanso</p>
+              <h3 class="text-lg sm:text-2xl font-bold mt-1 sm:mt-2">Litera básica</h3>
+              <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">Litera metálica estándar, óptima para ahorro de espacio.</p>
+              <button type="button" onclick="agregarAlCarrito('litera')" class="boton-rojo w-full rounded-lg py-2.5 sm:py-3 mt-4 text-xs sm:text-base font-bold">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="tarjeta-producto flex-shrink-0">
+            <div class="imagen-contenedor">
+              <img src="img/bace3.png" alt="Litera triple" class="imagen-producto" loading="lazy" decoding="async">
+            </div>
+            <div class="p-4 sm:p-6">
+              <p class="text-[10px] sm:text-xs uppercase tracking-widest text-red-600 font-bold">Máximo aprovechamiento</p>
+              <h3 class="text-lg sm:text-2xl font-bold mt-1 sm:mt-2">Litera triple</h3>
+              <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">Diseño de tres niveles compacto y ultra resistente.</p>
+              <button type="button" onclick="agregarAlCarrito('litera-triple')" class="boton-rojo w-full rounded-lg py-2.5 sm:py-3 mt-4 text-xs sm:text-base font-bold">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="tarjeta-producto flex-shrink-0">
+            <div class="imagen-contenedor">
+              <img src="img/bace4.png" alt="Litera con escritorio" class="imagen-producto" loading="lazy" decoding="async">
+            </div>
+            <div class="p-4 sm:p-6">
+              <p class="text-[10px] sm:text-xs uppercase tracking-widest text-red-600 font-bold">Espacio Multifuncional</p>
+              <h3 class="text-lg sm:text-2xl font-bold mt-1 sm:mt-2">Litera con escritorio</h3>
+              <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">Estructura superior de cama con mesa/escritorio integrado debajo.</p>
+              <button type="button" onclick="agregarAlCarrito('litera-escritorio')" class="boton-rojo w-full rounded-lg py-2.5 sm:py-3 mt-4 text-xs sm:text-base font-bold">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="tarjeta-producto flex-shrink-0">
+            <div class="imagen-contenedor">
+              <img src="img/bace5.png" alt="Litera con camas paralelas" class="imagen-producto" loading="lazy" decoding="async">
+            </div>
+            <div class="p-4 sm:p-6">
+              <p class="text-[10px] sm:text-xs uppercase tracking-widest text-red-600 font-bold">Diseño en L</p>
+              <h3 class="text-lg sm:text-2xl font-bold mt-1 sm:mt-2">Litera camas paralelas</h3>
+              <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">Camas inferiores en ángulo perpendicular a la cama alta.</p>
+              <button type="button" onclick="agregarAlCarrito('litera-paralelas')" class="boton-rojo w-full rounded-lg py-2.5 sm:py-3 mt-4 text-xs sm:text-base font-bold">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="tarjeta-producto flex-shrink-0">
+            <div class="imagen-contenedor">
+              <img src="img/bace6.png" alt="Litera Doble con Base Rodante" class="imagen-producto" loading="lazy" decoding="async">
+            </div>
+            <div class="p-4 sm:p-6">
+              <p class="text-[10px] sm:text-xs uppercase tracking-widest text-red-600 font-bold">Ideal para estudiantes</p>
+              <h3 class="text-lg sm:text-2xl font-bold mt-1 sm:mt-2">Litera Doble con Base Rodante</h3>
+              <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">Cama alta loft con área de trabajo y biblioteca en la base.</p>
+              <button type="button" onclick="agregarAlCarrito('litera-estudio')" class="boton-rojo w-full rounded-lg py-2.5 sm:py-3 mt-4 text-xs sm:text-base font-bold">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="tarjeta-producto flex-shrink-0">
+            <div class="imagen-contenedor">
+              <img src="img/bace7.png" alt="Litera tubular reforzada" class="imagen-producto" loading="lazy" decoding="async">
+            </div>
+            <div class="p-4 sm:p-6">
+              <p class="text-[10px] sm:text-xs uppercase tracking-widest text-red-600 font-bold">Estructura Fuerte</p>
+              <h3 class="text-lg sm:text-2xl font-bold mt-1 sm:mt-2">Litera tubular reforzada</h3>
+              <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">Postes tubulares de mayor grosor para máxima durabilidad.</p>
+              <button type="button" onclick="agregarAlCarrito('litera-tubular')" class="boton-rojo w-full rounded-lg py-2.5 sm:py-3 mt-4 text-xs sm:text-base font-bold">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="tarjeta-producto flex-shrink-0">
+            <div class="imagen-contenedor">
+              <img src="img/bace8.png" alt="Litera Mixta" class="imagen-producto" loading="lazy" decoding="async">
+            </div>
+            <div class="p-4 sm:p-6">
+              <p class="text-[10px] sm:text-xs uppercase tracking-widest text-red-600 font-bold">Matrimonial + Individual</p>
+              <h3 class="text-lg sm:text-2xl font-bold mt-1 sm:mt-2">Litera mixta</h3>
+              <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">Base matrimonial en nivel inferior e individual en superior.</p>
+              <button type="button" onclick="agregarAlCarrito('litera-mixta')" class="boton-rojo w-full rounded-lg py-2.5 sm:py-3 mt-4 text-xs sm:text-base font-bold">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="tarjeta-producto flex-shrink-0">
+            <div class="imagen-contenedor">
+              <img src="img/bace9.png" alt="Litera industrial triple" class="imagen-producto" loading="lazy" decoding="async">
+            </div>
+            <div class="p-4 sm:p-6">
+              <p class="text-[10px] sm:text-xs uppercase tracking-widest text-red-600 font-bold">Uso Rudo</p>
+              <h3 class="text-lg sm:text-2xl font-bold mt-1 sm:mt-2">Litera ruda triple</h3>
+              <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">Perfilería de alto calibre diseñada para hospederías y dormitorios.</p>
+              <button type="button" onclick="agregarAlCarrito('litera-ruda')" class="boton-rojo w-full rounded-lg py-2.5 sm:py-3 mt-4 text-xs sm:text-base font-bold">Agregar al carrito</button>
+            </div>
+          </article>
+
+        </div>
+
+        <div id="indicadores-carrusel" class="flex justify-center items-center gap-1.5 sm:gap-2 mt-4 sm:mt-6"></div>
+
+        <p class="text-center text-gray-500 text-xs sm:text-sm mt-6 sm:mt-8">Consulta medidas, colores y disponibilidad directamente con el negocio.</p>
+      </div>
+    </section>
+
+    <section id="servicios" class="fondo-servicios text-white py-12 sm:py-20 overflow-hidden">
+      <div class="bandera" aria-hidden="true"><span class="verde"></span><span class="blanco"></span><span class="rojo"></span></div>
+      <div id="particulas-servicios" class="particulas" aria-hidden="true"></div>
+      <div class="hero-contenido max-w-[1800px] mx-auto px-4 sm:px-6">
+        <div class="text-center mb-8 sm:mb-12 seccion-animada">
+          <p class="text-red-400 font-bold uppercase tracking-widest text-xs sm:text-sm mb-1 sm:mb-2">Qué ofrecemos</p>
+          <h2 class="font-black encabezado-seccion">NUESTROS SERVICIOS</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+          <article class="servicio rounded-2xl p-6 sm:p-8 seccion-animada">
+            <div class="servicio-numero mb-3 sm:mb-5">01</div>
+            <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Fabricación</h3>
+            <p class="text-gray-300 text-xs sm:text-base leading-relaxed">Bases de cama y literas metálicas. Consulta las medidas y colores disponibles para tu proyecto.</p>
+          </article>
+
+          <article class="servicio rounded-2xl p-6 sm:p-8 seccion-animada">
+            <div class="servicio-numero mb-3 sm:mb-5">02</div>
+            <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Servicio de pintura</h3>
+            <p class="text-gray-300 text-xs sm:text-base leading-relaxed">Consulta las opciones de pintura y acabados disponibles para tus bases metálicas.</p>
+          </article>
+
+          <article class="servicio rounded-2xl p-6 sm:p-8 seccion-animada">
+            <div class="servicio-numero mb-3 sm:mb-5">03</div>
+            <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Mantenimiento</h3>
+            <p class="text-gray-300 text-xs sm:text-base leading-relaxed">Pregunta por las opciones de mantenimiento y revisión de tus bases y literas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros" class="py-10 sm:py-16 bg-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center seccion-animada">
+        <p class="text-red-600 font-bold uppercase tracking-widest text-xs sm:text-sm mb-1 sm:mb-2">Quiénes somos</p>
+        <h2 class="font-black encabezado-seccion">FABRICACIÓN METÁLICA</h2>
+        <p class="text-gray-600 text-sm sm:text-lg leading-relaxed max-w-3xl mx-auto mt-5 sm:mt-7">
+          Nos dedicamos a la fabricación de bases de cama y literas metálicas para hogares, negocios y espacios que necesitan soluciones prácticas. También ofrecemos servicio de pintura y mantenimiento. Nuestro objetivo es brindarte opciones funcionales y ayudarte a encontrar el producto adecuado para tus necesidades.
+        </p>
+        <a href="#contacto" class="boton-rojo rounded-lg px-6 py-3 font-bold text-sm sm:text-base mt-6 sm:mt-8">Solicitar información</a>
+      </div>
+    </section>
+
+    <div class="separador-bandera" aria-hidden="true"></div>
+
+    <section id="contacto" class="py-12 sm:py-20 bg-gray-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-8 sm:mb-12 seccion-animada">
+          <p class="text-red-600 font-bold uppercase tracking-widest text-xs sm:text-sm mb-1 sm:mb-2">Atención y cotizaciones</p>
+          <h2 class="font-black encabezado-seccion">CONTÁCTANOS</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div class="bg-white rounded-2xl shadow-md p-6 sm:p-8 seccion-animada">
+            <h3 class="text-xl sm:text-2xl font-black mb-5 sm:mb-7">Información de contacto</h3>
+
+            <div class="space-y-4 sm:space-y-6 text-sm sm:text-base">
+              <div>
+                <p class="text-gray-500 text-xs sm:text-sm mb-1">WhatsApp</p>
+                <a href="https://wa.me/528130905327" target="_blank" rel="noopener noreferrer" class="font-bold text-base sm:text-lg text-green-700 hover:underline">81 3090 5327</a>
+              </div>
+              <div>
+                <p class="text-gray-500 text-xs sm:text-sm mb-1">Facebook</p>
+                <a href="https://www.facebook.com/search/top?q=David%20Reyna" target="_blank" rel="noopener noreferrer" class="font-bold text-base sm:text-lg text-blue-700 hover:underline">David Reyna</a>
+              </div>
+              <div>
+                <p class="text-gray-500 text-xs sm:text-sm mb-1">Ubicación</p>
+                <p class="font-bold text-base sm:text-lg">Monterrey, N.L.</p>
+              </div>
+            </div>
+
+            <a href="https://wa.me/528130905327?text=Hola%2C%20quiero%20solicitar%20una%20cotizacion." target="_blank" rel="noopener noreferrer" class="boton-rojo rounded-lg py-3 px-5 mt-6 sm:mt-8 font-bold text-xs sm:text-base w-full">
+              Solicitar cotización por WhatsApp
+            </a>
+          </div>
+
+          <form id="formulario-cotizacion" class="bg-white rounded-2xl shadow-md p-6 sm:p-8 seccion-animada" novalidate>
+            <h3 class="text-xl sm:text-2xl font-black mb-1 sm:mb-2">Solicita una cotización</h3>
+            <p class="text-gray-500 text-xs sm:text-sm mb-5 sm:mb-7">Completa los datos y envía tu solicitud por WhatsApp.</p>
+
+            <label for="nombre" class="block font-semibold text-xs sm:text-sm mb-1.5">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required maxlength="100" autocomplete="name" class="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 sm:py-3 mb-4 text-xs sm:text-base focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Escribe tu nombre">
+
+            <label for="telefono" class="block font-semibold text-xs sm:text-sm mb-1.5">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" inputmode="tel" required maxlength="25" autocomplete="tel" class="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 sm:py-3 mb-4 text-xs sm:text-base focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Tu número de teléfono (10 dígitos)">
+
+            <label for="tipo" class="block font-semibold text-xs sm:text-sm mb-1.5">Producto o servicio</label>
+            <select id="tipo" name="tipo" required class="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 sm:py-3 mb-4 text-xs sm:text-base focus:outline-none focus:ring-2 focus:ring-red-500 bg-white">
+              <option value="">Selecciona una opción</option>
+              <option value="Base individual">Base individual</option>
+              <option value="Litera básica">Litera básica</option>
+              <option value="Litera triple">Litera triple</option>
+              <option value="Litera con escritorio">Litera con escritorio</option>
+              <option value="Litera camas paralelas">Litera camas paralelas</option>
+              <option value="Litera Doble con Base Rodante">Litera Doble con Base Rodante</option>
+              <option value="Litera tubular reforzada">Litera tubular reforzada</option>
+              <option value="Litera mixta">Litera mixta</option>
+              <option value="Litera ruda triple">Litera ruda triple</option>
+              <option value="Fabricación personalizada">Fabricación personalizada</option>
+              <option value="Servicio de pintura">Servicio de pintura</option>
+              <option value="Mantenimiento">Mantenimiento</option>
+              <option value="Otro producto o servicio">Otro producto o servicio</option>
+            </select>
+
+            <label for="detalles" class="block font-semibold text-xs sm:text-sm mb-1.5">Detalles de tu solicitud</label>
+            <textarea id="detalles" name="detalles" rows="3" maxlength="1500" class="w-full border border-gray-300 rounded-lg px-3.5 py-2.5 sm:py-3 mb-5 text-xs sm:text-base focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Medidas, color, cantidad u otros detalles"></textarea>
+
+            <button type="submit" class="boton-rojo rounded-lg py-3 w-full font-bold text-xs sm:text-base">Enviar solicitud por WhatsApp</button>
+            <p id="estado-formulario" class="text-red-600 text-xs sm:text-sm mt-3" role="alert" aria-live="polite"></p>
+            <p class="text-gray-500 text-[10px] sm:text-xs mt-3">WhatsApp se abrirá con el mensaje preparado. Tendrás que enviarlo desde esa aplicación. Tus datos no se guardan en este sitio.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fondo-footer text-white py-10 sm:py-12">
+    <div class="bandera" aria-hidden="true"><span class="verde"></span><span class="blanco"></span><span class="rojo"></span></div>
+    <div id="particulas-footer" class="particulas" aria-hidden="true"></div>
+    <div class="hero-contenido max-w-[1800px] mx-auto px-4 sm:px-6 flex flex-col items-center text-center gap-5 sm:gap-7">
+
+      <div class="flex flex-col items-center">
+        <img src="img/logo.png" alt="Logo MEXICAMAS" class="logo-footer mb-3 sm:mb-4" loading="lazy" decoding="async">
+        <p class="text-gray-300 text-xs sm:text-sm">Monterrey, N.L.</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm font-semibold">
+        <a href="https://wa.me/528130905327" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-gray-300 hover:text-[#25d366] transition">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M16.02 3C8.85 3 3.02 8.78 3.02 15.9c0 2.28.6 4.5 1.74 6.46L3 29l6.86-1.79a13.1 13.1 0 0 0 6.16 1.54h.01c7.16 0 13-5.79 13-12.9 0-3.45-1.35-6.68-3.8-9.12A12.93 12.93 0 0 0 16.02 3zm0 23.56h-.01a10.8 10.8 0 0 1-5.5-1.5l-.4-.24-4.07 1.06 1.09-3.94-.26-.41a10.6 10.6 0 0 1-1.64-5.63c0-5.93 4.86-10.75 10.8-10.75 2.88 0 5.59 1.12 7.63 3.15a10.66 10.66 0 0 1 3.16 7.6c0 5.93-4.85 10.66-10.8 10.66zm5.93-8.03c-.32-.16-1.9-.93-2.2-1.04-.3-.11-.51-.16-.72.16-.21.32-.83 1.04-1.02 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.84-1.59-1.87-1.78-2.19-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.72-.99-2.35-.26-.62-.52-.53-.72-.54h-.61c-.21 0-.56.08-.86.4-.3.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.26 3.43 5.47 4.81.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.9-.77 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37z"/>
+          </svg>
+          WhatsApp
+        </a>
+        <a href="https://www.facebook.com/search/top?q=David%20Reyna" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-gray-300 hover:text-[#1877F2] transition">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/>
+          </svg>
+          Facebook
+        </a>
+        <a href="tel:+528130905327" class="flex items-center gap-1.5 text-gray-300 hover:text-white transition">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          81 3090 5327
+        </a>
+      </div>
+
+      <div class="w-full max-w-xs h-px bg-gray-800 my-1 sm:my-2"></div>
+
+      <div class="flex flex-col items-center gap-2">
+        <button type="button" onclick="mostrarTerminos(event)" class="text-gray-400 text-xs sm:text-sm hover:text-white transition underline">Términos, Condiciones y Aviso Legal</button>
+        <p class="text-gray-400 text-[10px] sm:text-xs mt-1">© <span id="anio"></span> MEXICAMAS. Todos los derechos reservados.</p>
+      </div>
+
+    </div>
+  </footer>
+  <div class="barra-inferior" aria-hidden="true"></div>
+
+  <!-- Modal del Carrito -->
+  <div id="modal-carrito" class="hidden fixed inset-0 modal-fondo capa-modal items-center justify-center p-2 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="titulo-carrito">
+    <div class="bg-white rounded-2xl w-full max-w-lg p-4 sm:p-6 max-h-[90vh] overflow-y-auto shadow-2xl">
+      <div class="flex items-center justify-between mb-4 sm:mb-6">
+        <h2 id="titulo-carrito" class="text-xl sm:text-2xl font-black">Tu carrito</h2>
+        <button type="button" onclick="cerrarCarrito()" class="text-2xl sm:text-3xl leading-none text-gray-500 hover:text-black" aria-label="Cerrar carrito">&times;</button>
+      </div>
+
+      <div id="productos-carrito" class="space-y-3 sm:space-y-4"></div>
+
+      <div class="border-t mt-4 sm:mt-6 pt-4 sm:pt-5">
+        <div class="flex items-center justify-between gap-3 text-base sm:text-lg font-bold">
+          <span>Total</span>
+          <span id="total-carrito">Consulta</span>
+        </div>
+        <p class="text-gray-500 text-[10px] sm:text-xs mt-1.5">Consulta medidas, colores y disponibilidad directamente con el negocio.</p>
+        <button type="button" onclick="enviarCarritoWhatsApp()" class="bg-green-600 hover:bg-green-700 text-white rounded-lg py-2.5 sm:py-3 w-full font-bold text-xs sm:text-base mt-4 transition">Continuar por WhatsApp</button>
+        <button type="button" onclick="vaciarCarrito()" class="text-red-600 hover:underline w-full mt-2.5 text-xs sm:text-sm">Vaciar carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Términos -->
+  <div id="modal-terminos" class="hidden fixed inset-0 modal-fondo capa-modal items-center justify-center p-2 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="titulo-terminos">
+    <div class="bg-white rounded-2xl w-full max-w-3xl p-5 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl text-left">
+      <div class="flex items-center justify-between mb-4 sm:mb-6 border-b border-gray-200 pb-3">
+        <h2 id="titulo-terminos" class="text-base sm:text-2xl font-black text-gray-900">TÉRMINOS, CONDICIONES Y AVISO LEGAL</h2>
+        <button type="button" onclick="cerrarTerminos()" class="text-2xl sm:text-3xl leading-none text-gray-500 hover:text-black" aria-label="Cerrar">&times;</button>
+      </div>
+
+      <div class="space-y-4 sm:space-y-6 text-gray-700 text-xs sm:text-base leading-relaxed">
+        <div>
+          <h3 class="font-bold text-black mb-1 sm:mb-2">1. NATURALEZA Y OBJETO DEL SITIO WEB</h3>
+          <p>El presente sitio web, operado bajo el nombre comercial "Mexicamas", tiene como único y exclusivo propósito la exhibición, promoción y comercialización de camas, literas y artículos para el descanso. La plataforma tecnológica actúa estrictamente como un medio digital para facilitar la interacción comercial entre el titular del negocio y los consumidores finales.</p>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-black mb-1 sm:mb-2">2. TRANSMISIÓN DE LA INFRAESTRUCTURA Y DOMINIO</h3>
+          <p>Se hace constar expresamente que el creador, diseñador y desarrollador de este sitio web ha concluido su relación de prestación de servicios mediante la venta, transferencia del dominio y la entrega de la página web operativa y en línea a favor del actual propietario de Mexicamas.</p>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-black mb-1 sm:mb-2">3. DESLINDE Y EXENCIÓN DE RESPONSABILIDAD DEL DESARROLLADOR</h3>
+          <p>El desarrollador queda eximido de toda responsabilidad civil, penal, mercantil o administrativa por mal uso del sitio o transacciones comerciales.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class="whatsapp-texto" aria-hidden="true">¿Necesitas información?</span>
+  <a href="https://wa.me/528130905327?text=Hola%2C%20quiero%20informacion%20sobre%20sus%20productos." class="whatsapp-flotante" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16.02 3C8.85 3 3.02 8.78 3.02 15.9c0 2.28.6 4.5 1.74 6.46L3 29l6.86-1.79a13.1 13.1 0 0 0 6.16 1.54h.01c7.16 0 13-5.79 13-12.9 0-3.45-1.35-6.68-3.8-9.12A12.93 12.93 0 0 0 16.02 3zm0 23.56h-.01a10.8 10.8 0 0 1-5.5-1.5l-.4-.24-4.07 1.06 1.09-3.94-.26-.41a10.6 10.6 0 0 1-1.64-5.63c0-5.93 4.86-10.75 10.8-10.75 2.88 0 5.59 1.12 7.63 3.15a10.66 10.66 0 0 1 3.16 7.6c0 5.93-4.85 10.66-10.8 10.66zm5.93-8.03c-.32-.16-1.9-.93-2.2-1.04-.3-.11-.51-.16-.72.16-.21.32-.83 1.04-1.02 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.84-1.59-1.87-1.78-2.19-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.72-.99-2.35-.26-.62-.52-.53-.72-.54h-.61c-.21 0-.56.08-.86.4-.3.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.26 3.43 5.47 4.81.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.9-.77 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37z"/>
+    </svg>
+  </a>
+
+  <script>
+    "use strict";
+
+    Object.defineProperty(window, "__CREATOR_INFO__", {
+      value: Object.freeze({
+        autor: "Ricardo Ovalle",
+        empresa: "RSoftwares",
+        licencia: "Este codigo es de uso exclusivo de Ricardo Ovalle para la empresa Mexicamas"
+      }),
+      writable: false,
+      configurable: false,
+      enumerable: false
+    });
+
+    const WHATSAPP_NUMERO = "528130905327";
+
+    const CATALOGO = Object.freeze({
+      "base-individual": { nombre: "Base individual", precio: 1500 },
+      "litera":          { nombre: "Litera básica", precio: 3499 },
+      "litera-triple":   { nombre: "Litera triple", precio: 4500 },
+      "litera-escritorio": { nombre: "Litera con escritorio", precio: 5800 },
+      "litera-paralelas": { nombre: "Litera camas paralelas", precio: 6200 },
+      "litera-estudio":  { nombre: "Litera Doble con Base Rodante", precio: 5500 },
+      "litera-tubular":  { nombre: "Litera tubular reforzada", precio: 3890 },
+      "litera-mixta":    { nombre: "Litera mixta", precio: 4800 },
+      "litera-ruda":     { nombre: "Litera ruda triple", precio: 5200 }
+    });
+
+    const MAX_POR_PRODUCTO = 99;
+    const CLAVE_CARRITO = "mexicamas_carrito_v1";
+
+    const btnMenu = document.getElementById("btn-menu-movil");
+    const menuMovil = document.getElementById("menu-movil");
+
+    function cerrarMenuMovil() {
+      menuMovil.classList.add("hidden");
+      btnMenu.setAttribute("aria-expanded", "false");
+    }
+
+    btnMenu.addEventListener("click", () => {
+      const abierto = menuMovil.classList.toggle("hidden") === false;
+      btnMenu.setAttribute("aria-expanded", String(abierto));
+    });
+
+    document.querySelectorAll(".enlace-movil").forEach(enlace => {
+      enlace.addEventListener("click", cerrarMenuMovil);
+    });
+
+    const carrusel = document.getElementById("carrusel-productos");
+    const btnPrev = document.getElementById("btn-carrusel-prev");
+    const btnNext = document.getElementById("btn-carrusel-next");
+    const contenedorIndicadores = document.getElementById("indicadores-carrusel");
+    const tarjetas = carrusel.querySelectorAll(".tarjeta-producto");
+
+    tarjetas.forEach((_, index) => {
+      const ind = document.createElement("div");
+      ind.className = `indicador-carrusel ${index === 0 ? "activo" : ""}`;
+      ind.addEventListener("click", () => {
+        const anchoTarjeta = tarjetas[0].getBoundingClientRect().width + 20;
+        carrusel.scrollTo({ left: anchoTarjeta * index, behavior: "smooth" });
+      });
+      contenedorIndicadores.appendChild(ind);
+    });
+
+    const indicadores = contenedorIndicadores.querySelectorAll(".indicador-carrusel");
+
+    function actualizarIndicadores() {
+      const anchoTarjeta = tarjetas[0].getBoundingClientRect().width + 20;
+      const indiceActivo = Math.round(carrusel.scrollLeft / anchoTarjeta);
+      indicadores.forEach((ind, idx) => {
+        if (idx === indiceActivo) {
+          ind.classList.add("activo");
+        } else {
+          ind.classList.remove("activo");
+        }
+      });
+    }
+
+    carrusel.addEventListener("scroll", actualizarIndicadores);
+
+    btnPrev.addEventListener("click", () => {
+      const anchoTarjeta = tarjetas[0].getBoundingClientRect().width + 20;
+      carrusel.scrollBy({ left: -anchoTarjeta, behavior: "smooth" });
+    });
+
+    btnNext.addEventListener("click", () => {
+      const anchoTarjeta = tarjetas[0].getBoundingClientRect().width + 20;
+      carrusel.scrollBy({ left: anchoTarjeta, behavior: "smooth" });
+    });
+
+    function formatoMoneda(cantidad) {
+      return cantidad.toLocaleString("es-MX", {
+        style: "currency",
+        currency: "MXN",
+        maximumFractionDigits: 0
+      });
+    }
+
+    function cargarCarrito() {
+      try {
+        const bruto = localStorage.getItem(CLAVE_CARRITO);
+        if (!bruto) return [];
+        const datos = JSON.parse(bruto);
+        if (!Array.isArray(datos)) return [];
+        return datos
+          .filter(item => item && Object.prototype.hasOwnProperty.call(CATALOGO, item.id))
+          .map(item => ({
+            id: item.id,
+            cantidad: Math.min(MAX_POR_PRODUCTO, Math.max(1, parseInt(item.cantidad, 10) || 1))
+          }));
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function guardarCarrito() {
+      try {
+        localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
+      } catch (error) {}
+    }
+
+    const carrito = cargarCarrito();
+
+    function agregarAlCarrito(id) {
+      if (!Object.prototype.hasOwnProperty.call(CATALOGO, id)) return;
+
+      const existente = carrito.find(item => item.id === id);
+      if (existente) {
+        existente.cantidad = Math.min(MAX_POR_PRODUCTO, existente.cantidad + 1);
+      } else {
+        carrito.push({ id, cantidad: 1 });
+      }
+      actualizarCarrito();
+      animarContador();
+    }
+
+    function animarContador() {
+      document.querySelectorAll(".cantidad-carrito-span").forEach(el => {
+        el.classList.remove("rebote");
+        void el.offsetWidth;
+        el.classList.add("rebote");
+      });
+    }
+
+    function totalCarrito() {
+      return carrito.reduce((suma, item) => suma + CATALOGO[item.id].precio * item.cantidad, 0);
+    }
+
+    function actualizarCarrito() {
+      const cantidadTotal = carrito.reduce((suma, item) => suma + item.cantidad, 0);
+
+      document.querySelectorAll(".cantidad-carrito-span").forEach(el => {
+        el.textContent = cantidadTotal;
+      });
+
+      const contenedor = document.getElementById("productos-carrito");
+      contenedor.replaceChildren();
+
+      if (carrito.length === 0) {
+        const mensaje = document.createElement("p");
+        mensaje.className = "text-gray-500 text-center py-6 text-xs sm:text-base";
+        mensaje.textContent = "Tu carrito está vacío.";
+        contenedor.appendChild(mensaje);
+      }
+
+      carrito.forEach((item, indice) => {
+        const producto = CATALOGO[item.id];
+
+        const fila = document.createElement("div");
+        fila.className = "flex items-center justify-between gap-3 border-b pb-3";
+
+        const datos = document.createElement("div");
+        const nombre = document.createElement("p");
+        nombre.className = "font-bold text-xs sm:text-base";
+        nombre.textContent = producto.nombre;
+
+        datos.append(nombre);
+
+        const controles = document.createElement("div");
+        controles.className = "flex items-center gap-1.5";
+
+        const menos = document.createElement("button");
+        menos.type = "button";
+        menos.textContent = "−";
+        menos.className = "border rounded w-7 h-7 sm:w-8 sm:h-8 font-bold hover:bg-gray-100 text-xs sm:text-base";
+        menos.addEventListener("click", () => cambiarCantidad(indice, -1));
+
+        const cantidad = document.createElement("span");
+        cantidad.className = "font-bold min-w-4 text-center text-xs sm:text-base";
+        cantidad.textContent = item.cantidad;
+
+        const mas = document.createElement("button");
+        mas.type = "button";
+        mas.textContent = "+";
+        mas.className = "border rounded w-7 h-7 sm:w-8 sm:h-8 font-bold hover:bg-gray-100 text-xs sm:text-base";
+        mas.addEventListener("click", () => cambiarCantidad(indice, 1));
+
+        controles.append(menos, cantidad, mas);
+        fila.append(datos, controles);
+        contenedor.appendChild(fila);
+      });
+
+      document.getElementById("total-carrito").textContent = "Consulta";
+      guardarCarrito();
+    }
+
+    function cambiarCantidad(indice, cambio) {
+      const item = carrito[indice];
+      if (!item) return;
+
+      item.cantidad = Math.min(MAX_POR_PRODUCTO, item.cantidad + cambio);
+      if (item.cantidad <= 0) {
+        carrito.splice(indice, 1);
+      }
+      actualizarCarrito();
+    }
+
+    function vaciarCarrito() {
+      carrito.length = 0;
+      actualizarCarrito();
+    }
+
+    function abrirWhatsApp(texto) {
+      window.open(
+        "https://wa.me/" + WHATSAPP_NUMERO + "?text=" + encodeURIComponent(texto),
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }
+
+    function enviarCarritoWhatsApp() {
+      if (carrito.length === 0) {
+        alert("Agrega al menos un producto al carrito.");
+        return;
+      }
+
+      const lineas = ["Hola, quiero cotizar estos productos:", ""];
+
+      carrito.forEach(item => {
+        const producto = CATALOGO[item.id];
+        lineas.push(producto.nombre + " x " + item.cantidad);
+      });
+
+      lineas.push("");
+      lineas.push("Quiero confirmar medidas, colores y disponibilidad.");
+
+      abrirWhatsApp(lineas.join("\n"));
+    }
+
+    let modalActivo = null;
+
+    function abrirModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      document.body.classList.add("sin-scroll");
+      modalActivo = modal;
+    }
+
+    function cerrarModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      document.body.classList.remove("sin-scroll");
+      modalActivo = null;
+    }
+
+    function mostrarCarrito() {
+      actualizarCarrito();
+      abrirModal("modal-carrito");
+    }
+
+    function cerrarCarrito() { cerrarModal("modal-carrito"); }
+    function mostrarTerminos(evento) { if (evento) evento.preventDefault(); abrirModal("modal-terminos"); }
+    function cerrarTerminos() { cerrarModal("modal-terminos"); }
+
+    ["modal-carrito", "modal-terminos"].forEach(id => {
+      document.getElementById(id).addEventListener("click", function (e) {
+        if (e.target === this) cerrarModal(id);
+      });
+    });
+
+    const campoTelefono = document.getElementById("telefono");
+    const estadoFormulario = document.getElementById("estado-formulario");
+
+    document.getElementById("formulario-cotizacion").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const telefono = campoTelefono.value.trim();
+      const tipo = document.getElementById("tipo").value;
+      const detalles = document.getElementById("detalles").value.trim();
+
+      if (!nombre || !telefono || !tipo) {
+        estadoFormulario.textContent = "Por favor completa todos los campos requeridos.";
+        return;
+      }
+
+      const mensaje = [
+        "Hola, quiero solicitar una cotización.",
+        "",
+        "Nombre: " + nombre,
+        "Teléfono: " + telefono,
+        "Producto o servicio: " + tipo,
+        "Detalles: " + (detalles || "Sin detalles adicionales")
+      ].join("\n");
+
+      abrirWhatsApp(mensaje);
+    });
+
+    document.getElementById("anio").textContent = new Date().getFullYear();
+
+    function crearParticulas(idContenedor) {
+      const contenedor = document.getElementById(idContenedor);
+      if (!contenedor) return;
+
+      const colores = ["#22a45d", "#ffffff", "#e0313a"];
+      const cantidad = window.innerWidth < 768 ? 8 : 18;
+
+      for (let i = 0; i < cantidad; i++) {
+        const p = document.createElement("span");
+        const tam = 4 + Math.random() * 6;
+        p.className = "particula";
+        p.style.left = (Math.random() * 100) + "%";
+        p.style.width = tam + "px";
+        p.style.height = tam + "px";
+        p.style.background = colores[i % colores.length];
+        p.style.setProperty("--dx", (Math.random() * 100 - 50) + "px");
+        p.style.animationDuration = (8 + Math.random() * 8) + "s";
+        p.style.animationDelay = "-" + (Math.random() * 10) + "s";
+        contenedor.appendChild(p);
+      }
+    }
+
+    crearParticulas("particulas");
+    crearParticulas("particulas-servicios");
+    crearParticulas("particulas-footer");
+
+    const elementosAnimados = document.querySelectorAll(".seccion-animada");
+    if ("IntersectionObserver" in window) {
+      const observador = new IntersectionObserver((entradas) => {
+        entradas.forEach(entrada => {
+          if (entrada.isIntersecting) {
+            entrada.target.classList.add("visible");
+            observador.unobserve(entrada.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      elementosAnimados.forEach(e => observador.observe(e));
+    } else {
+      elementosAnimados.forEach(e => e.classList.add("visible"));
+    }
+
+    actualizarCarrito();
+  </script>
+</body>
+</html>
